@@ -1,6 +1,6 @@
 import pytest
 
-from ../src import class_
+from src import class_
 
 
 @pytest.fixture()
