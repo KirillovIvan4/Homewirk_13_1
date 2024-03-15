@@ -55,6 +55,7 @@ def test_init_category(class_smart):
       }
     ]
 
+
 def test_init_products(class_products):
     assert class_products.name == "Samsung Galaxy C23 Ultra"
     assert class_products.description == "256GB, Серый цвет, 200MP камера"
