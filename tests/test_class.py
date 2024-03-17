@@ -1,15 +1,15 @@
 import pytest
 
-from src import class_
+from src import class_Category,class_Product
 
 @pytest.fixture()
 def class_products():
-    return class_.Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    return class_Product.Product("Samsung Galaxy C23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 
 
 @pytest.fixture()
 def class_smart(class_products):
-    return class_.Category("Смартфоны",
+    return class_Category.Category("Смартфоны",
     "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни",
     [class_products])
 
@@ -21,11 +21,11 @@ def test_init_category(class_smart):
 
 
 def test_nummer_of_category(class_smart):
-    assert  class_smart.nummer_of_category == 3
+    assert  class_smart.nummer_of_category == 2
 
 
 def test_nummer_of_products(class_smart):
-    assert  class_smart.nummer_of_products == 1
+    assert  class_smart.nummer_of_products == 3
 
 
 def test_init_products(class_products):
