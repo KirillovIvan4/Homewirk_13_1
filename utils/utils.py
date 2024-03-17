@@ -7,5 +7,5 @@ def get_list():
         data_products = json.load(json_data_products)
         return data_products
 
-for i in get_list():
-    print(i)
+
+
