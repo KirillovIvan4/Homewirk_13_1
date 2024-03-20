@@ -4,19 +4,35 @@ from utils import utils
 class Category:
     name : str
     description : str
-    products : list
+    __products : list
     nummer_of_category = 0
     nummer_of_products = 0
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.products = products
+        self.__products = products
         Category.nummer_of_category += 1
-        Category.nummer_of_products += len(self.products)
+        Category.nummer_of_products += len(self.__products)
 
 
     def __repr__(self):
-        return f"{self.name} \n{self.products} \n"
+        return f"{self.name} \n{self.__products}"
+
+
+    @property
+    def add_product(self):
+        return self.__products
+
+    @add_product.setter
+    def add_product(self, object_products):
+        self.__products.append(object_products)
+
+    @property
+    def get_product_and_price_and_quantity(self):
+        list_products = ""
+        for product in self.__products:
+            list_products += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт \n"
+        return list_products
 
 # class Product:
 #     name : str
