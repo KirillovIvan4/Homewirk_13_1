@@ -44,3 +44,11 @@ def test_add_product(class_smart):
 
 def test_get_product_and_price_and_quantity(class_smart):
     assert class_smart.get_product_and_price_and_quantity == "Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт \n"
+
+def test_get_new_price(class_products_1):
+    class_products_1.get_new_price = 10
+    assert class_products_1.get_new_price == 180000.0
+    class_products_1.get_new_price = -10
+    assert class_products_1.get_new_price == 180000.0
+    class_products_1.get_new_price = 0
+    assert class_products_1.get_new_price == 180000.0

@@ -16,7 +16,7 @@ class Category:
 
 
     def __repr__(self):
-        return f"{self.name} \n{self.__products}"
+        return f"{self.name} \n{self.__products} "
 
 
     @property
@@ -25,7 +25,19 @@ class Category:
 
     @add_product.setter
     def add_product(self, object_products):
-        self.__products.append(object_products)
+        occurrences = 0
+        for product in self.__products:
+            if object_products.name != product.name:
+                occurrences += 1
+        if occurrences == len(self.__products):
+            self.__products.append(object_products)
+        else:
+            for product in self.__products:
+                if object_products.name == product.name:
+                    product.quantity += object_products.quantity
+                    if product.price < object_products.price:
+                        product.price = object_products.price
+
 
     @property
     def get_product_and_price_and_quantity(self):
