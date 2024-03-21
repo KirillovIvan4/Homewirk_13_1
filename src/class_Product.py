@@ -16,6 +16,7 @@ class Product:
 
     @property
     def get_new_price(self):
+        """Геттер возвращает цену или предупреждение о некоректно введеной цене"""
         if self.correct_price == True:
             return self.price
         else:
@@ -23,18 +24,16 @@ class Product:
 
     @get_new_price.setter
     def get_new_price(self, new_price:float):
+        """Сеттер принемает новую цену проверяет больше ли она 0 если меньше то меняет correct_price на False для вывода сообщения об ошибке
+        если больше то сравнивает новую и старую цену для выбора большей"""
         self.correct_price = True
         if new_price > 0:
             if self.price < new_price:
                 self.price = new_price
-                # return self.price
             else:
                 print("Новая цена ниже уже установленной\nВведите 'y' для подтверждения новой цены")
                 user_response = input()
                 if user_response.lower() == "y":
                     self.price = new_price
-                #     return self.price
-                # else:
-                #     return self.price
         else:
             self.correct_price = False
