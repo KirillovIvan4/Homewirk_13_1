@@ -1,5 +1,5 @@
 import pytest
-from io import StringIO
+
 
 from src import class_category,class_product
 
@@ -32,18 +32,22 @@ def test_nummer_of_products(class_smart):
     assert  class_smart.nummer_of_products == 3
 
 
-def test_init_products(class_products_1):
+def test_init_products(class_products_1, class_products_2):
     assert class_products_1.name == "Samsung Galaxy C23 Ultra"
     assert class_products_1.description == "256GB, Серый цвет, 200MP камера"
     assert class_products_1.price == 180000.0
     assert class_products_1.quantity == 5
+    assert class_products_2.name == "Iphone 15"
+    assert class_products_2.description == "512GB, Gray space"
+    assert class_products_2.price == 210000.0
+    assert class_products_2.quantity == 25
 
-
-# def test_add_product(class_smart):
-#     class_smart.product = class_products_1
-#     assert class_smart.product() == ["Samsung Galaxy C23 Ultra", "Iphone 15"]
-
-def test_get_product_and_price_and_quantity(class_smart):
+def test_add_product(class_products_2, class_products_1, class_smart):
+    class_smart.product = class_products_2
+    assert class_smart.product[1].quantity == 25
+    class_smart.product = class_products_2
+    assert class_smart.product[1].quantity == 50
+def test_product_and_price_and_quantity(class_smart):
     assert class_smart.product_and_price_and_quantity == ["Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт"]
 
 
