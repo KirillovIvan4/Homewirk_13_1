@@ -20,12 +20,12 @@ class Category:
 
 
     @property
-    def add_product(self):
+    def product(self):
         """Геттер возвращает список с объектами Product"""
         return self.__products
 
-    @add_product.setter
-    def add_product(self, object_products):
+    @product.setter
+    def product(self, object_products):
         """ Сеттер получает на вход новый объект Product, сравнивает с уже имеющемися.
         Если объект с таким же параметром name уже есть то их кол-во складывается, а цена сравнивается для выбора более высокой"""
         # Счетчик количества пройденых циклов в которых Product.name не совпадают
@@ -46,9 +46,9 @@ class Category:
 
 
     @property
-    def get_product_and_price_and_quantity(self):
+    def product_and_price_and_quantity(self):
         """Геттер возращает строку с информацией о продукте в виде:Продукт, 80 руб. Остаток: 15 шт."""
-        list_products = ""
+        list_products = []
         for product in self.__products:
-            list_products += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт \n"
+            list_products.append(f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт")
         return list_products
