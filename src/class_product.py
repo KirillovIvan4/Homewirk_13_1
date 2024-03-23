@@ -30,7 +30,6 @@ class Product:
     def new_price(self, new_price: float):
         """Сеттер принемает новую цену проверяет больше ли она 0 если меньше то меняет correct_price на False для вывода сообщения об ошибке
         если больше то сравнивает новую и старую цену для выбора большей"""
-        # self.correct_price = True
         if new_price > 0:
             if self.price < new_price:
                 self.price = new_price
