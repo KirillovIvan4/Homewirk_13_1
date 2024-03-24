@@ -1,7 +1,7 @@
 import pytest
 
 
-from src import class_category,class_product
+from src import class_category,class_product, class_iterator_category
 
 @pytest.fixture()
 def class_products_1():
@@ -86,3 +86,10 @@ def test_new_price(class_products_1):
 def test_add(class_products_1, class_products_2):
     sum_price = (class_products_1.price * class_products_1.quantity) + (class_products_2.price * class_products_2.quantity)
     assert sum_price == 6150000.0
+
+# def test_iterator_category (class_smart):
+#     str = []
+#     for i in class_iterator_category.Iterator_category(class_smart):
+#         str.append(i)
+#
+#     assert str == ["Samsung Galaxy C23 Ultra 180000.0"]

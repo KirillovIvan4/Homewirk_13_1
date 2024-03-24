@@ -50,4 +50,3 @@ class Product:
 
         else:
             print("Цена введена некорректная")
-

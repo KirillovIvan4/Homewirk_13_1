@@ -1,5 +1,5 @@
 from utils import utils
-import class_category,class_product
+import class_category,class_product, class_iterator_category
 
 data_category = utils.get_list()
 list_category = []
@@ -55,3 +55,8 @@ print(list_category[0].product[0])
 print(list_category[0].product[1])
 sum_price = list_category[0].product[0] + list_category[0].product[1]
 print(f"Сумма цен продуктов {sum_price}")
+
+print()
+
+for product in class_iterator_category.Iterator_category(list_category[0]):
+    print(product)
