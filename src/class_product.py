@@ -14,6 +14,10 @@ class Product:
     def __repr__(self):
         return f"{self.name} {self.price}"
 
+
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт"
+
     @classmethod
     def from_string(cls,new_product):
         name, description, price, quantity = new_product.split(' ')
