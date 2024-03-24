@@ -11,6 +11,11 @@ def class_products_1():
 def class_products_2():
     return class_product.Product("Iphone 15", "512GB, Gray space", 210000.0, 25)
 
+
+@pytest.fixture()
+def class_products_3():
+    return class_product.Product("Iphone 15", "512GB, Gray space", 2100000.0, 25)
+
 @pytest.fixture()
 def class_smart(class_products_1):
     return class_category.Category("Смартфоны",
@@ -35,7 +40,6 @@ def test_len(class_smart):
     assert len(class_smart) == 5
 
 
-
 def test_product_and_price_and_quantity(class_smart):
     assert class_smart.product_and_price_and_quantity == ["Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт"]
 
@@ -58,11 +62,14 @@ def test_init_products(class_products_1, class_products_2):
     assert class_products_2.price == 210000.0
     assert class_products_2.quantity == 25
 
-def test_add_product(class_products_2, class_products_1, class_smart):
+def test_add_product(class_products_3, class_products_2, class_products_1, class_smart):
     class_smart.product = class_products_2
     assert class_smart.product[1].quantity == 25
     class_smart.product = class_products_2
     assert class_smart.product[1].quantity == 50
+    assert class_smart.product[1].price == 210000.0
+    class_smart.product = class_products_3
+    assert class_smart.product[1].price == 2100000.0
 
 
 def test_new_price(class_products_1):
@@ -75,3 +82,7 @@ def test_new_price(class_products_1):
     # Ни как не разобраться как протестировать input
     # class_products_1.get_new_price = 10
     # assert class_products_1.get_new_price == 180000
+
+def test_add(class_products_1, class_products_2):
+    sum_price = (class_products_1.price * class_products_1.quantity) + (class_products_2.price * class_products_2.quantity)
+    assert sum_price == 6150000.0

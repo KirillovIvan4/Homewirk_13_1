@@ -45,5 +45,13 @@ print(list_category[0].product_and_price_and_quantity[0])
 list_category[0].product[0].new_price = 580000.0
 print(list_category[0].product_and_price_and_quantity[0])
 print()
+
 for category_ in list_category:
     print(category_)
+
+print()
+
+print(list_category[0].product[0])
+print(list_category[0].product[1])
+sum_price = list_category[0].product[0] + list_category[0].product[1]
+print(f"Сумма цен продуктов {sum_price}")
