@@ -6,6 +6,3 @@ def get_list():
     with open('../products.json', 'r', encoding='utf-8') as json_data_products:
         data_products = json.load(json_data_products)
         return data_products
-
-
-
