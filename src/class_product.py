@@ -20,9 +20,11 @@ class Product:
 
 
     def __add__(self, other):
-        return (self.quantity * self.price) + (other.quantity * other.price)
-
-
+        if self.__class__ == type(other):
+            return f"{(self.quantity * self.price) + (other.quantity * other.price)}"
+        else:
+            raise TypeError("Нельзя складывать разные классы")
+        # return (self.quantity * self.price) + (other.quantity * other.price)
     @classmethod
     def from_string(cls,new_product):
         name, description, price, quantity = new_product.split(' ')

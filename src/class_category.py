@@ -1,4 +1,5 @@
-from utils import utils
+# from utils import utils
+import class_product
 
 
 class Category:
@@ -42,8 +43,10 @@ class Category:
         # если счетчик равен длинне списка то можно добавлять новый объект так как он ни разу не встретился
         occurrences = 0
         for product in self.__products:
-            if object_products.name != product.name:
+            if isinstance(object_products,type(product)) and issubclass(type(object_products),type(product)) and object_products.name != product.name:
+            # if object_products.name != product.name:
                 occurrences += 1
+
         if occurrences == len(self.__products):
             self.__products.append(object_products)
         # если счетчик не равен длинне списка это значит что объект с таким же name уже есть и нужно сложить их количество и выбрать более высокую цену
@@ -55,11 +58,11 @@ class Category:
                         product.price = object_products.price
 
 
+
     @property
     def product_and_price_and_quantity(self):
         """Геттер возращает строку с информацией о продукте в виде:Продукт, 80 руб. Остаток: 15 шт."""
         list_products = []
         for product in self.__products:
-            # list_products.append(f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт")
             list_products.append(f"{product}")
         return list_products

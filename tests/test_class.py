@@ -1,7 +1,7 @@
 import pytest
 
 
-from src import class_category,class_product, class_iterator_category
+from src import class_category, class_product#, class_iterator_category
 
 @pytest.fixture()
 def class_products_1():
@@ -22,6 +22,9 @@ def class_smart(class_products_1):
     "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни",
     [class_products_1])
 
+# @pytest.fixture()
+# def class_smartphone():
+#     return class_smartphone.Smartphone("Iphone 15", "512GB, Gray space", 2100000.0, 25, "China", "15", "512 GB", "Gray space")
 def test_init_category(class_smart):
   assert class_smart.name == "Смартфоны"
   assert class_smart.description == "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни"
@@ -83,13 +86,16 @@ def test_new_price(class_products_1):
     # class_products_1.get_new_price = 10
     # assert class_products_1.get_new_price == 180000
 
-def test_add(class_products_1, class_products_2):
+def test_add(class_products_1, class_products_2, class_smartphone):
     sum_price = (class_products_1.price * class_products_1.quantity) + (class_products_2.price * class_products_2.quantity)
     assert sum_price == 6150000.0
 
 # def test_iterator_category (class_smart):
-#     str = []
+#     st = []
 #     for i in class_iterator_category.Iterator_category(class_smart):
-#         str.append(i)
+#         st.append(str(i))
 #
-#     assert str == ["Samsung Galaxy C23 Ultra 180000.0"]
+#     assert st == ['Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт']
+
+def test_str(class_products_1):
+    assert str(class_products_1) == "Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт"
