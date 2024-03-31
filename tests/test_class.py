@@ -1,7 +1,7 @@
 import pytest
 
 
-from src import class_category, class_product#, class_iterator_category
+from src import class_category, class_product
 
 @pytest.fixture()
 def class_products_1():

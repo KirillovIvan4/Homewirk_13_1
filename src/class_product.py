@@ -1,4 +1,7 @@
-class Product:
+from class_abstract_product import AbstractProduct
+from class_mixi_attribute import MixiAttribute
+
+class Product(MixiAttribute, AbstractProduct):
     name : str
     description : str
     price : float
@@ -11,8 +14,9 @@ class Product:
         self.quantity = quantity
         self.correct_price = True
 
-    def __repr__(self):
-        return f"{self.name} {self.price}"
+    # def __repr__(self):
+    #     super().__repr__()
+    #     # return f"{self.name} {self.price}"
 
 
     def __str__(self):
@@ -52,3 +56,7 @@ class Product:
 
         else:
             print("Цена введена некорректная")
+
+
+test = Product("mob_1", ".......", 100, 25)
+print(repr(test))
