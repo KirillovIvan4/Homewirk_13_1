@@ -1,8 +1,8 @@
-# from utils import utils
-import class_product
+
+from class_abstract_category import AbstractCategory
 
 
-class Category:
+class Category(AbstractCategory):
     name : str
     description : str
     __products : list
