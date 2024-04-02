@@ -34,20 +34,20 @@ for category_ in range(len(list_category)):
         print(list_category[category_].product_and_price_and_quantity[product_])
 print()
 # Замена цены
-# print(list_category[0].product_and_price_and_quantity[0])
-# list_category[0].product[0].new_price = 0.0
-# print(list_category[0].product_and_price_and_quantity[0])
-# list_category[0].product[0].new_price = -1.0
-# print(list_category[0].product_and_price_and_quantity[0])
-#
-# list_category[0].product[0].new_price = 10
-# print(list_category[0].product_and_price_and_quantity[0])
-# list_category[0].product[0].new_price = 580000.0
-# print(list_category[0].product_and_price_and_quantity[0])
-# print()
+print(list_category[0].product_and_price_and_quantity[0])
+list_category[0].product[0].new_price = 0.0
+print(list_category[0].product_and_price_and_quantity[0])
+list_category[0].product[0].new_price = -1.0
+print(list_category[0].product_and_price_and_quantity[0])
 
-# for category_ in list_category:
-#     print(category_)
+list_category[0].product[0].new_price = 10
+print(list_category[0].product_and_price_and_quantity[0])
+list_category[0].product[0].new_price = 580000.0
+print(list_category[0].product_and_price_and_quantity[0])
+print()
+
+for category_ in list_category:
+    print(category_)
 
 print()
 
@@ -72,3 +72,4 @@ sum_price1 = list_category[0].product[0] + list_category[0].product[1]
 print(f"Сумма цен продуктов {sum_price1}")
 # sum_price2 = list_category[0].product[0] + smart_iphone
 # print(f"Сумма цен продуктов {sum_price2}")
+print(repr(smart_iphone))

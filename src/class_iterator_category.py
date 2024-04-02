@@ -1,4 +1,4 @@
-class Iterator_category:
+class IteratorCategory:
     def __init__(self, category):
         self.category = category
         self.stop = len(category.product)
