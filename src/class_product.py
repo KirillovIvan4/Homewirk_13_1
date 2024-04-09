@@ -1,5 +1,5 @@
-from class_abstract_product import AbstractProduct
-from class_mixi_attribute import MixiAttribute
+from src.class_abstract_product import AbstractProduct
+from src.class_mixi_attribute import MixiAttribute
 
 class Product(MixiAttribute, AbstractProduct):
     name : str
@@ -34,6 +34,8 @@ class Product(MixiAttribute, AbstractProduct):
         name, description, price, quantity = new_product.split(' ')
         price = float(price)
         quantity = int(quantity)
+        if quantity <= 0:
+            raise ValueError
         return cls(name, description, price, quantity)
     @property
     def new_price(self):
@@ -58,5 +60,3 @@ class Product(MixiAttribute, AbstractProduct):
             print("Цена введена некорректная")
 
 
-test = Product("mob_1", ".......", 100, 25)
-print(repr(test))

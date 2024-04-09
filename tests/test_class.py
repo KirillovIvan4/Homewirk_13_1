@@ -1,7 +1,7 @@
 import pytest
 
 
-from src import class_category, class_product
+from src import class_category, class_product, class_abstract_category
 
 @pytest.fixture()
 def class_products_1():
@@ -22,9 +22,6 @@ def class_smart(class_products_1):
     "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни",
     [class_products_1])
 
-# @pytest.fixture()
-# def class_smartphone():
-#     return class_smartphone.Smartphone("Iphone 15", "512GB, Gray space", 2100000.0, 25, "China", "15", "512 GB", "Gray space")
 def test_init_category(class_smart):
   assert class_smart.name == "Смартфоны"
   assert class_smart.description == "Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни"
@@ -86,7 +83,7 @@ def test_new_price(class_products_1):
     # class_products_1.get_new_price = 10
     # assert class_products_1.get_new_price == 180000
 
-def test_add(class_products_1, class_products_2, class_smartphone):
+def test_add(class_products_1, class_products_2):
     sum_price = (class_products_1.price * class_products_1.quantity) + (class_products_2.price * class_products_2.quantity)
     assert sum_price == 6150000.0
 
