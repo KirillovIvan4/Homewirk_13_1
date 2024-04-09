@@ -66,6 +66,20 @@ class Category(AbstractCategory):
         for product in self.__products:
             list_products.append(f"{product}")
         return list_products
+    def get_average_price(self):
+        summ_price = 0
+        quantity_product = 0
+        try:
+            for products in self.__products:
+                price = products.price
+                summ_price += price
+                quantity_product += 1
+
+            average_price = summ_price / quantity_product
+        except ZeroDivisionError:
+            return 0
+        else:
+            return average_price
 
     def get_average_price(self):
         summ_price = 0
