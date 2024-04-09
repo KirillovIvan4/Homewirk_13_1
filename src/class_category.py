@@ -1,8 +1,4 @@
-
-from src.class_abstract_category import AbstractCategory
-
-
-class Category(AbstractCategory):
+class Category:
     name : str
     description : str
     __products : list

@@ -1,5 +1,5 @@
 from utils import utils
-import class_category,class_product, class_smartphone, class_order
+import class_category,class_product, class_smartphone
 
 data_category = utils.get_list()
 list_category = []
@@ -77,9 +77,4 @@ print(repr(smart_iphone))
 # print(list_category[0].get_average_price())
 empty_category = class_category.Category("food", "food for people",[])
 print(empty_category.get_average_price())
-# print(list_category[1].get_average_price())
-# empty_category = class_category.Category("food", "dshkshdgkh",[])
-# print(empty_category.get_average_price())
-print("==================")
-order_iphone = class_order.Order(list_category[0].product[0], 1)
-print(order_iphone)
+
