@@ -63,6 +63,7 @@ class Category:
             list_products.append(f"{product}")
         return list_products
     def get_average_price(self):
+        """Метод возвращает среднею цену рподукта в категории, если количество продукта равно 0, то возвращает 0"""
         summ_price = 0
         quantity_product = 0
         try:
