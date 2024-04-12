@@ -35,7 +35,7 @@ class Product(MixiAttribute, AbstractProduct):
         price = float(price)
         quantity = int(quantity)
         if quantity <= 0:
-            raise ValueError
+            raise ValueError ("Нельзя добавить товар с нулевым количеством!")
         return cls(name, description, price, quantity)
     @property
     def new_price(self):
