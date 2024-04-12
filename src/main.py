@@ -13,6 +13,7 @@ for i in range (len(data_category)):
 
     category = class_category.Category(data_category[i]['name'], data_category[i]['description'], list_products)
     list_category.append(category)
+print("Список категорий")
 print(list_category)
 print()
 # Получение класса из строки
@@ -21,10 +22,13 @@ test_2 = class_product.Product.from_string("test_smart description 200 1")
 test_3 = class_product.Product.from_string("test_smart description 10 1")
 
 list_category[0].product = test_1
+print("Добавление test_smart с ценой 100")
 print(list_category)
 list_category[0].product = test_2
+print("Добавление test_smart с ценой 200")
 print(list_category)
 list_category[0].product = test_3
+print("Добавление test_smart с ценой 10")
 print(list_category)
 print()
 
@@ -69,12 +73,13 @@ smart_iphone = class_smartphone.Smartphone("Iphone 15", "512GB, Gray space", 210
 
 
 sum_price1 = list_category[0].product[0] + list_category[0].product[1]
-print(f"Сумма цен продуктов {sum_price1}")
+# print(f"Сумма цен продуктов {sum_price1}")
 # sum_price2 = list_category[0].product[0] + smart_iphone
 # print(f"Сумма цен продуктов {sum_price2}")
 print(repr(smart_iphone))
-# test_3 = class_product.Product.from_string("test_smart description 10 0")
-# print(list_category[0].get_average_price())
+
+print(list_category[0].get_average_price())
 empty_category = class_category.Category("food", "food for people",[])
 print(empty_category.get_average_price())
-
+test_3 = class_product.Product.from_string("test_smart description 10 0")
+print(list_category[0].product[0].get_average_price())
