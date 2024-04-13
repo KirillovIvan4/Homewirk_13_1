@@ -38,20 +38,23 @@ class Category:
         # Счетчик количества пройденых циклов в которых Product.name не совпадают
         # если счетчик равен длинне списка то можно добавлять новый объект так как он ни разу не встретился
         occurrences = 0
-        for product in self.__products:
-            if isinstance(object_products,type(product)) and issubclass(type(object_products),type(product)) and object_products.name != product.name:
-            # if object_products.name != product.name:
-                occurrences += 1
-
-        if occurrences == len(self.__products):
-            self.__products.append(object_products)
-        # если счетчик не равен длинне списка это значит что объект с таким же name уже есть и нужно сложить их количество и выбрать более высокую цену
+        if object_products.quantity <= 0:
+            raise ValueError ("Нельзя добавить товар с нулевым количеством!")
         else:
             for product in self.__products:
-                if object_products.name == product.name:
-                    product.quantity += object_products.quantity
-                    if product.price < object_products.price:
-                        product.price = object_products.price
+                if isinstance(object_products,type(product)) and issubclass(type(object_products),type(product)) and object_products.name != product.name:
+                # if object_products.name != product.name:
+                    occurrences += 1
+
+            if occurrences == len(self.__products):
+                self.__products.append(object_products)
+            # если счетчик не равен длинне списка это значит что объект с таким же name уже есть и нужно сложить их количество и выбрать более высокую цену
+            else:
+                for product in self.__products:
+                    if object_products.name == product.name:
+                        product.quantity += object_products.quantity
+                        if product.price < object_products.price:
+                            product.price = object_products.price
 
 
 
